@@ -256,7 +256,7 @@ func (vdc *Vdc) GetOrgVdcNetworkById(id string, refresh bool) (*OrgVDCNetwork, e
 func (vdc *Vdc) GetOrgVdcNetworkByNameOrId(identifier string, refresh bool) (*OrgVDCNetwork, error) {
 	getByName := func(name string, refresh bool) (interface{}, error) { return vdc.GetOrgVdcNetworkByName(name, refresh) }
 	getById := func(id string, refresh bool) (interface{}, error) { return vdc.GetOrgVdcNetworkById(id, refresh) }
-	entity, err := getEntityByNameOrId(getByName, getById, identifier, false)
+	entity, err := getEntityByNameOrId(getByName, getById, identifier, refresh)
 	if entity == nil {
 		return nil, err
 	}
@@ -457,7 +457,7 @@ func (vdc *Vdc) GetEdgeGatewayById(id string, refresh bool) (*EdgeGateway, error
 func (vdc *Vdc) GetEdgeGatewayByNameOrId(identifier string, refresh bool) (*EdgeGateway, error) {
 	getByName := func(name string, refresh bool) (interface{}, error) { return vdc.GetEdgeGatewayByName(name, refresh) }
 	getById := func(id string, refresh bool) (interface{}, error) { return vdc.GetEdgeGatewayById(id, refresh) }
-	entity, err := getEntityByNameOrId(getByName, getById, identifier, false)
+	entity, err := getEntityByNameOrId(getByName, getById, identifier, refresh)
 	if entity == nil {
 		return nil, err
 	}
@@ -815,7 +815,7 @@ func (vdc *Vdc) GetVAppById(id string, refresh bool) (*VApp, error) {
 func (vdc *Vdc) GetVAppByNameOrId(identifier string, refresh bool) (*VApp, error) {
 	getByName := func(name string, refresh bool) (interface{}, error) { return vdc.GetVAppByName(name, refresh) }
 	getById := func(id string, refresh bool) (interface{}, error) { return vdc.GetVAppById(id, refresh) }
-	entity, err := getEntityByNameOrId(getByName, getById, identifier, false)
+	entity, err := getEntityByNameOrId(getByName, getById, identifier, refresh)
 	if entity == nil {
 		return nil, err
 	}

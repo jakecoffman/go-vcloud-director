@@ -138,7 +138,7 @@ func (vapp *VApp) GetVappNetworkByName(vappNetworkName string, refresh bool) (*t
 func (vapp *VApp) GetVappNetworkByNameOrId(identifier string, refresh bool) (*types.VAppNetwork, error) {
 	getByName := func(name string, refresh bool) (interface{}, error) { return vapp.GetVappNetworkByName(name, refresh) }
 	getById := func(id string, refresh bool) (interface{}, error) { return vapp.GetVappNetworkById(id, refresh) }
-	entity, err := getEntityByNameOrId(getByName, getById, identifier, false)
+	entity, err := getEntityByNameOrId(getByName, getById, identifier, refresh)
 	if entity == nil {
 		return nil, err
 	}

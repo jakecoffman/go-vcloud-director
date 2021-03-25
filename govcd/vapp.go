@@ -1335,7 +1335,7 @@ func (vapp *VApp) GetVMById(id string, refresh bool) (*VM, error) {
 func (vapp *VApp) GetVMByNameOrId(identifier string, refresh bool) (*VM, error) {
 	getByName := func(name string, refresh bool) (interface{}, error) { return vapp.GetVMByName(name, refresh) }
 	getById := func(id string, refresh bool) (interface{}, error) { return vapp.GetVMById(id, refresh) }
-	entity, err := getEntityByNameOrId(getByName, getById, identifier, false)
+	entity, err := getEntityByNameOrId(getByName, getById, identifier, refresh)
 	if entity == nil {
 		return nil, err
 	}
